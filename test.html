@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Самопроверка | КотоПсихология</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🐱 КотоПсихология</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="conditions.html">Расстройства</a></li>
+                <li><a href="test.html">Самопроверка</a></li>
+                <li><a href="help.html">Помощь</a></li>
+                <li><a href="about.html">О проекте</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Хлебные крошки -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <nav aria-label="Хлебные крошки">
+                <ol>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><span aria-current="page">Самопроверка</span></li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero блок -->
+    <section class="hero hero-test">
+        <div class="container">
+            <h1>Самопроверка</h1>
+            <p>Пройдите короткий тест, чтобы понять, стоит ли обратить внимание на своё психическое состояние</p>
+        </div>
+    </section>
+
+    <!-- Важное предупреждение -->
+    <section class="section-white">
+        <div class="container">
+            <div class="info-box info-box-warning" style="max-width: 800px; margin: 0 auto;">
+                <div class="info-box-icon">⚠️</div>
+                <div class="info-box-content">
+                    <h4>Важно!</h4>
+                    <p>Этот тест <strong>не является диагностическим инструментом</strong>. Он лишь помогает обратить внимание на возможные признаки проблем и не заменяет консультацию специалиста.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Тест -->
+    <section id="quiz-section" class="section-gray">
+        <div class="container">
+            <div class="quiz-wrapper">
+                <!-- Прогресс бар -->
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="progress-text">Вопрос <span class="current-question">1</span> из <span class="total-questions">7</span></div>
+                </div>
+
+                <!-- Контейнер вопросов -->
+                <div class="quiz-container" id="quiz-container">
+                    <!-- Вопросы будут загружены через JavaScript -->
+                </div>
+
+                <!-- Результат -->
+                <div class="quiz-result" id="quiz-result" style="display: none;">
+                    <div class="result-card">
+                        <div class="result-emoji" id="result-emoji">🐱</div>
+                        <h2 id="result-title">Результат</h2>
+                        <p id="result-description" class="result-description"></p>
+                        
+                        <div class="result-details" id="result-details"></div>
+                        
+                        <div class="result-actions">
+                            <a href="help.html" class="btn btn-accent">Получить помощь</a>
+                            <a href="conditions.html" class="btn btn-primary">Изучить расстройства</a>
+                            <button class="btn btn-outline" onclick="restartQuiz()">Пройти заново</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Что делать дальше -->
+    <section class="section-white">
+        <div class="container">
+            <h2 class="section-title-with-icon">📍 Что делать дальше?</h2>
+            
+            <div class="next-steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Не паниковать</h4>
+                    <p>Даже если результаты показывают наличие симптомов — это не диагноз. Многие состояния успешно лечатся.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Обратиться к специалисту</h4>
+                    <p>Только квалифицированный врач или психолог может поставить диагноз и назначить лечение.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Изучить информацию</h4>
+                    <p>Узнайте больше о своём состоянии — понимание помогает снизить тревогу.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>Позаботиться о себе</h4>
+                    <p>Режим сна, физическая активность и поддержка близких важны для психического здоровья.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок помощи -->
+    <section class="help-section">
+        <div class="container">
+            <h2 class="section-title">Нужна помощь?</h2>
+            <p class="section-subtitle">Если вы узнали себя в этом описании — важно обратиться к специалисту</p>
+            
+            <div class="help-cards">
+                <div class="help-card">
+                    <div class="help-icon">📞</div>
+                    <h3>Позвонить</h3>
+                    <p>Горячие линии работают круглосуточно и анонимно</p>
+                    <a href="tel:88002000122" class="help-phone">8-800-2000-122</a>
+                    <a href="help.html" class="btn btn-accent">Все телефоны</a>
+                </div>
+                
+                <div class="help-card">
+                    <div class="help-icon">💬</div>
+                    <h3>Написать</h3>
+                    <p>Онлайн-чаты с психологами и консультантами</p>
+                    <a href="help.html" class="btn btn-accent">Открыть чат</a>
+                </div>
+                
+                <div class="help-card">
+                    <div class="help-icon">📍</div>
+                    <h3>Найти рядом</h3>
+                    <p>Центры психологической помощи в вашем городе</p>
+                    <a href="help.html" class="btn btn-accent">Найти центр</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>🐱 КотоПсихология</h4>
+                    <p>Проект создан для повышения осведомлённости о психическом здоровье</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="conditions.html">Расстройства</a></li>
+                        <li><a href="test.html">Самопроверка</a></li>
+                        <li><a href="help.html">Помощь</a></li>
+                        <li><a href="about.html">О проекте</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <p>info@catpsychology.ru</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Telegram">✈️</a>
+                        <a href="#" aria-label="ВКонтакте">💙</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-warning">
+                <p>⚠️ Не является медицинским диагнозом. При наличии симптомов обратитесь к специалисту.</p>
+            </div>
+            <p class="footer-copyright">© 2024 КотоПсихология</p>
+        </div>
+    </footer>
+
+    <!-- Кнопка наверх -->
+    <button class="back-to-top" aria-label="Вернуться наверх">↑</button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

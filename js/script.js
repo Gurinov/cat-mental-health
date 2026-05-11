@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initConditionCards();
     initSmoothScroll();
     initMobileMenu();
+    initAccordion();
+    initBackToTop();
+    initQuiz();
 });
 
 // ============================================
@@ -113,91 +116,220 @@ function initMobileMenu() {
 }
 
 // ============================================
-//   Интерактивный мини-тест (опционально)
+//   Аккордеоны на страницах состояний
 // ============================================
 
-function initQuiz() {
-    const quizContainer = document.querySelector('.quiz-container');
-    if (!quizContainer) return;
+function initAccordion() {
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
     
-    const questions = [
-        {
-            question: "Как часто вы чувствуете тревогу без очевидной причины?",
-            answers: ["Никогда", "Иногда", "Часто", "Постоянно"],
-            scores: [0, 1, 2, 3]
-        },
-        {
-            question: "Насколько сложно вам заснуть из-за навязчивых мыслей?",
-            answers: ["Очень легко", "Иногда сложно", "Часто сложно", "Почти невозможно"],
-            scores: [0, 1, 2, 3]
-        },
-        {
-            question: "Чувствуете ли вы упадок сил и потерю интереса к делам?",
-            answers: ["Нет", "Редко", "Иногда", "Да, постоянно"],
-            scores: [0, 1, 2, 3]
-        }
-    ];
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            // Закрыть все остальные
+            accordionHeaders.forEach(otherHeader => {
+                if (otherHeader !== header) {
+                    otherHeader.setAttribute('aria-expanded', 'false');
+                    otherHeader.nextElementSibling.classList.remove('open');
+                }
+            });
+            
+            // Переключить текущий
+            this.setAttribute('aria-expanded', !isExpanded);
+            content.classList.toggle('open');
+        });
+    });
+}
+
+// ============================================
+//   Кнопка наверх
+// ============================================
+
+function initBackToTop() {
+    const backToTopBtn = document.querySelector('.back-to-top');
     
-    let currentQuestion = 0;
-    let totalScore = 0;
-    
-    function showQuestion(index) {
-        if (index >= questions.length) {
-            showResult();
-            return;
-        }
+    if (backToTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
         
-        const q = questions[index];
-        quizContainer.innerHTML = `
-            <div class="question">
-                <h4>${q.question}</h4>
-                <div class="answers">
-                    ${q.answers.map((answer, i) => `
-                        <button class="btn-answer" data-score="${q.scores[i]}">${answer}</button>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-        
-        document.querySelectorAll('.btn-answer').forEach(btn => {
-            btn.addEventListener('click', function() {
-                totalScore += parseInt(this.getAttribute('data-score'));
-                currentQuestion++;
-                showQuestion(currentQuestion);
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     }
-    
-    function showResult() {
-        let resultText = '';
-        let recommendation = '';
-        
-        if (totalScore <= 3) {
-            resultText = 'Всё в порядке!';
-            recommendation = 'Ваше психическое состояние в норме. Продолжайте заботиться о себе!';
-        } else if (totalScore <= 6) {
-            resultText = 'Есть лёгкие признаки';
-            recommendation = 'Рекомендуем обратить внимание на своё состояние и больше отдыхать.';
-        } else {
-            resultText = 'Стоит обратиться к специалисту';
-            recommendation = 'Ваши ответы показывают, что консультация специалиста может быть полезна.';
-        }
-        
-        quizContainer.innerHTML = `
-            <div class="result">
-                <h3>${resultText}</h3>
-                <p>${recommendation}</p>
-                <a href="help.html" class="btn btn-accent">Получить помощь</a>
-            </div>
-        `;
-    }
-    
-    showQuestion(0);
 }
 
-// Запуск теста если есть контейнер
-if (document.querySelector('.quiz-container')) {
-    initQuiz();
+// ============================================
+//   Интерактивный мини-тест
+// ============================================
+
+const quizQuestions = [
+    {
+        question: "Как часто вы чувствуете тревогу без очевидной причины?",
+        answers: ["Никогда", "Иногда", "Часто", "Постоянно"],
+        scores: [0, 1, 2, 3]
+    },
+    {
+        question: "Насколько сложно вам заснуть из-за навязчивых мыслей?",
+        answers: ["Очень легко", "Иногда сложно", "Часто сложно", "Почти невозможно"],
+        scores: [0, 1, 2, 3]
+    },
+    {
+        question: "Чувствуете ли вы упадок сил и потерю интереса к делам?",
+        answers: ["Нет", "Редко", "Иногда", "Да, постоянно"],
+        scores: [0, 1, 2, 3]
+    },
+    {
+        question: "Проверяете ли вы вещи несколько раз (дверь, газ, выключатели)?",
+        answers: ["Никогда", "Иногда", "Часто", "Всегда"],
+        scores: [0, 1, 2, 3]
+    },
+    {
+        question: "Избегаете ли вы социальных ситуаций из-за беспокойства?",
+        answers: ["Никогда", "Иногда", "Часто", "Постоянно"],
+        scores: [0, 1, 2, 3]
+    },
+    {
+        question: "Чувствуете ли вы необходимость выполнять действия по определённому ритуалу?",
+        answers: ["Никогда", "Иногда", "Часто", "Постоянно"],
+        scores: [0, 1, 2, 3]
+    },
+    {
+        question: "Мешают ли эти состояния вашей повседневной жизни?",
+        answers: ["Нет", "Немного", "Заметно", "Сильно мешают"],
+        scores: [0, 1, 2, 3]
+    }
+];
+
+let currentQuestion = 0;
+let totalScore = 0;
+let selectedScores = [];
+
+function initQuiz() {
+    const quizContainer = document.getElementById('quiz-container');
+    if (!quizContainer) return;
+    
+    renderQuestion();
+}
+
+function renderQuestion() {
+    const quizContainer = document.getElementById('quiz-container');
+    const quizResult = document.getElementById('quiz-result');
+    
+    if (currentQuestion >= quizQuestions.length) {
+        showResult();
+        return;
+    }
+    
+    const q = quizQuestions[currentQuestion];
+    const progress = ((currentQuestion) / quizQuestions.length) * 100;
+    
+    document.querySelector('.progress-fill').style.width = progress + '%';
+    document.querySelector('.current-question').textContent = currentQuestion + 1;
+    
+    quizContainer.innerHTML = `
+        <div class="question">
+            <h4>${q.question}</h4>
+            <div class="answers">
+                ${q.answers.map((answer, i) => `
+                    <button class="btn-answer" data-score="${q.scores[i]}" onclick="selectAnswer(${i}, ${q.scores[i]})">${answer}</button>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function selectAnswer(index, score) {
+    const buttons = document.querySelectorAll('.btn-answer');
+    buttons.forEach((btn, i) => {
+        btn.classList.toggle('selected', i === index);
+    });
+    
+    selectedScores[currentQuestion] = score;
+    
+    setTimeout(() => {
+        currentQuestion++;
+        renderQuestion();
+    }, 300);
+}
+
+function showResult() {
+    const quizContainer = document.getElementById('quiz-container');
+    const quizResult = document.getElementById('quiz-result');
+    const progressFill = document.querySelector('.progress-fill');
+    
+    totalScore = selectedScores.reduce((a, b) => a + b, 0);
+    progressFill.style.width = '100%';
+    
+    let resultTitle = '';
+    let resultDescription = '';
+    let resultEmoji = '';
+    let recommendations = [];
+    
+    if (totalScore <= 7) {
+        resultEmoji = '😊🐱';
+        resultTitle = 'Всё в порядке!';
+        resultDescription = 'Ваши ответы показывают, что ваше психическое состояние в пределах нормы. Продолжайте заботиться о себе!';
+        recommendations = [
+            'Поддерживайте здоровый режим дня',
+            'Практикуйте техники релаксации для профилактики',
+            'Обращайте внимание на изменения в настроении'
+        ];
+    } else if (totalScore <= 14) {
+        resultEmoji = '🤔🐱';
+        resultTitle = 'Есть лёгкие признаки';
+        resultDescription = 'Ваши ответы показывают наличие некоторых симптомов, которые могут указывать на лёгкую тревожность или стресс. Рекомендуется обратить внимание на своё состояние.';
+        recommendations = [
+            'Попробуйте техники управления стрессом',
+            'Убедитесь, что вы достаточно отдыхаете',
+            'Рассмотрите возможность консультации с психологом'
+        ];
+    } else {
+        resultEmoji = '💙🐱';
+        resultTitle = 'Стоит обратиться к специалисту';
+        resultDescription = 'Ваши ответы показывают значительный уровень симптомов. Консультация со специалистом может быть очень полезна для улучшения качества жизни.';
+        recommendations = [
+            'Запишитесь на консультацию к психологу или психотерапевту',
+            'Не оставайтесь с этим в одиночку — помощь доступна',
+            'Помните: обращение за помощью — это признак силы, а не слабости'
+        ];
+    }
+    
+    quizContainer.style.display = 'none';
+    quizResult.style.display = 'block';
+    
+    document.getElementById('result-emoji').textContent = resultEmoji;
+    document.getElementById('result-title').textContent = resultTitle;
+    document.getElementById('result-description').textContent = resultDescription;
+    
+    document.getElementById('result-details').innerHTML = `
+        <h4>Рекомендации:</h4>
+        <ul>
+            ${recommendations.map(r => `<li>${r}</li>`).join('')}
+        </ul>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">
+            <strong>Ваш результат:</strong> ${totalScore} из ${quizQuestions.length * 3} возможных баллов
+        </p>
+    `;
+}
+
+function restartQuiz() {
+    currentQuestion = 0;
+    totalScore = 0;
+    selectedScores = [];
+    
+    document.getElementById('quiz-container').style.display = 'block';
+    document.getElementById('quiz-result').style.display = 'none';
+    
+    renderQuestion();
 }
 
 // ============================================
@@ -219,7 +351,7 @@ function initScrollAnimation() {
         });
     }, observerOptions);
     
-    const animatedElements = document.querySelectorAll('.condition-card, .help-card');
+    const animatedElements = document.querySelectorAll('.condition-card, .help-card, .metaphor-card, .step-card');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
