@@ -474,3 +474,1010 @@ footer p {
         padding: 1.5rem;
     }
 }
+
+/* ============================================
+   Хлебные крошки
+   ============================================ */
+
+.breadcrumbs {
+    background-color: var(--bg-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumbs ol {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+}
+
+.breadcrumbs a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs span[aria-current="page"] {
+    color: var(--text-light);
+}
+
+.breadcrumbs li:not(:last-child)::after {
+    content: "→";
+    margin-left: 0.5rem;
+    color: var(--text-light);
+}
+
+/* ============================================
+   Условные страницы героев
+   ============================================ */
+
+.hero-condition {
+    padding: 3rem 2rem;
+}
+
+.condition-hero-content {
+    text-align: center;
+}
+
+.condition-emoji {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.anxiety-hero {
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+}
+
+.depression-hero {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.ocd-hero {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+/* ============================================
+   Якорная навигация
+   ============================================ */
+
+.anchor-nav {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 70px;
+    z-index: 900;
+}
+
+.anchor-list {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.anchor-list a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.anchor-list a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* ============================================
+   Секции с разным фоном
+   ============================================ */
+
+.section-white {
+    background-color: var(--card-bg);
+    padding: 4rem 2rem;
+}
+
+.section-gray {
+    background-color: var(--bg-color);
+    padding: 4rem 2rem;
+}
+
+.section-accent {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    padding: 4rem 2rem;
+    color: white;
+}
+
+/* ============================================
+   Заголовки секций с иконками
+   ============================================ */
+
+.section-title-with-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section-title-light {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle-light {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============================================
+   Контент блоки
+   ============================================ */
+
+.content-block {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+/* ============================================
+   Информационные блоки
+   ============================================ */
+
+.info-box {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+
+.info-box-warning {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+}
+
+.info-box-info {
+    background-color: #d1ecf1;
+    border-left: 4px solid #17a2b8;
+}
+
+.info-box-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.info-box-content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.info-box-content p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* ============================================
+   Статистика карточки
+   ============================================ */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background-color: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   Аккордеон симптомов
+   ============================================ */
+
+.symptoms-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 1.5rem;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: var(--bg-color);
+}
+
+.accordion-icon {
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.accordion-header[aria-expanded="true"] .accordion-icon {
+    transform: rotate(90deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 1.5rem;
+}
+
+.accordion-content.open {
+    max-height: 500px;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.accordion-content ul {
+    margin-left: 1.5rem;
+}
+
+.accordion-content li {
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+/* ============================================
+   Метафора сетка
+   ============================================ */
+
+.metaphor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.metaphor-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.metaphor-emoji {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.metaphor-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.metaphor-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   Таблица сравнения
+   ============================================ */
+
+.comparison-table {
+    margin-top: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.comparison-col {
+    padding: 1.5rem;
+}
+
+.comparison-col:first-child {
+    background-color: var(--bg-color);
+}
+
+.comparison-col:last-child {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.comparison-col strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.comparison-col ul {
+    margin-left: 1.5rem;
+}
+
+.comparison-col li {
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   Методы помощи сетка
+   ============================================ */
+
+.help-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.help-method-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.help-method-card .method-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.help-method-card h4 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.help-method-card p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+.help-method-card ul {
+    margin-left: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.help-method-card li {
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   Предупреждающие знаки
+   ============================================ */
+
+.warning-signs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.warning-sign-card {
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.warning-sign-card.critical {
+    background-color: #ffebee;
+    border-left: 4px solid #f44336;
+}
+
+.warning-sign-card {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--primary-color);
+}
+
+.warning-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.warning-sign-card h4 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.warning-sign-card ul {
+    margin-left: 1.5rem;
+}
+
+.warning-sign-card li {
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+/* ============================================
+   CTA блок
+   ============================================ */
+
+.cta-block {
+    text-align: center;
+    background-color: var(--bg-color);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+}
+
+.cta-block h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.cta-block p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   Похожие состояния
+   ============================================ */
+
+.similar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.similar-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.similar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.similar-emoji {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.similar-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.similar-card p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.similar-link {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   Footer улучшенный
+   ============================================ */
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-col h4 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-col p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: var(--accent-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+.footer-warning {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-warning p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* ============================================
+   Кнопка наверх
+   ============================================ */
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-3px);
+}
+
+/* ============================================
+   Тест стили
+   ============================================ */
+
+.hero-test {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.quiz-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.quiz-progress {
+    margin-bottom: 2rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.quiz-container {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.question {
+    margin-bottom: 2rem;
+}
+
+.question h4 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.btn-answer {
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.btn-answer:hover {
+    border-color: var(--primary-color);
+    background-color: var(--bg-color);
+}
+
+.btn-answer.selected {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.result-card {
+    text-align: center;
+    padding: 2rem;
+}
+
+.result-emoji {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.result-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.result-description {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.result-details {
+    background-color: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.result-details h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.result-details ul {
+    margin-left: 1.5rem;
+    color: var(--text-light);
+}
+
+.result-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.next-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.step-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+.step-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.step-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   ОКР специфичные стили
+   ============================================ */
+
+.obsessions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.obsession-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.obsession-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.obsession-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.obsession-card > p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.obsession-card ul {
+    margin-left: 1.5rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.compulsions-list {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.compulsion-item {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.compulsion-header {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--bg-color);
+}
+
+.compulsion-icon {
+    font-size: 2rem;
+}
+
+.compulsion-header h4 {
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.compulsion-content {
+    padding: 1.5rem;
+}
+
+.compulsion-content > p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.compulsion-content ul {
+    margin-left: 1.5rem;
+    color: var(--text-light);
+}
+
+.ocd-cycle {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.ocd-cycle h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.cycle-diagram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem;
+    background-color: var(--bg-color);
+    border-radius: 12px;
+}
+
+.cycle-step {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    min-width: 150px;
+}
+
+.cycle-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 auto 0.5rem;
+}
+
+.cycle-step h4 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.cycle-step p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+.cycle-arrow {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .cycle-diagram {
+        flex-direction: column;
+    }
+    
+    .cycle-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .comparison-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .anchor-nav {
+        overflow-x: auto;
+    }
+    
+    .anchor-list {
+        justify-content: flex-start;
+    }
+}
