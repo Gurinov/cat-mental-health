@@ -232,8 +232,14 @@ function renderQuestion() {
     const q = quizQuestions[currentQuestion];
     const progress = ((currentQuestion) / quizQuestions.length) * 100;
     
-    document.querySelector('.progress-fill').style.width = progress + '%';
-    document.querySelector('.current-question').textContent = currentQuestion + 1;
+    // Обновляем прогресс бар
+    const progressFill = document.querySelector('.progress-fill');
+    const currentQuestionEl = document.querySelector('.current-question');
+    const totalQuestionsEl = document.querySelector('.total-questions');
+    
+    if (progressFill) progressFill.style.width = progress + '%';
+    if (currentQuestionEl) currentQuestionEl.textContent = currentQuestion + 1;
+    if (totalQuestionsEl) totalQuestionsEl.textContent = quizQuestions.length;
     
     quizContainer.innerHTML = `
         <div class="question">
@@ -255,10 +261,11 @@ function selectAnswer(index, score) {
     
     selectedScores[currentQuestion] = score;
     
+    // Небольшая задержка для визуального подтверждения выбора
     setTimeout(() => {
         currentQuestion++;
         renderQuestion();
-    }, 300);
+    }, 250);
 }
 
 function showResult() {
@@ -360,5 +367,7 @@ function initScrollAnimation() {
     });
 }
 
-// Запуск анимации
-initScrollAnimation();
+// Запуск анимации при загрузке DOM
+document.addEventListener('DOMContentLoaded', function() {
+    initScrollAnimation();
+});
